@@ -19,7 +19,7 @@ public class ExpressionEvaluator {
             EvaluatorOperations evaluate = cli.getEvaluation();
             System.out.println(evaluate.showExpression());
         } catch (Exception e) {
-            System.out.println("something went wrong " + e);
+            System.out.println("something went wrong!!! " + e);
         }
     }
 }
