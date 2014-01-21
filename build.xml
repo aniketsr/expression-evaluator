@@ -46,8 +46,13 @@
         <jar destfile="expression-evaluator/lib/expression-evaluator.jar" basedir="build/classes"></jar>
     </target>
 
+    <target name = "createDocs" depends="createJar">
+        <javadoc packagenames="aniketsr.*"
+                 sourcepath="src"
+                 destdir="expression-evaluator/docs"/>
+    </target>
 
-    <target name="dist" depends="createJar">
+    <target name="dist" depends="createDocs">
         <copydir src="scripts" dest="expression-evaluator/bin"/>
         <copy file="README.md" toDir="expression-evaluator"/>
         <zip zipfile="expression-evaluator.zip" basedir="expression-evaluator"></zip>
