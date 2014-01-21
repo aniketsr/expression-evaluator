@@ -1,0 +1,56 @@
+<project name="expression-evaluator" default="dist">
+
+    <target name="cleanBuild">
+        <delete dir="build"/>
+    </target>
+
+    <target name="createBuildDir">
+        <mkdir dir="build"></mkdir>
+        <mkdir dir="build/classes"></mkdir>
+        <mkdir dir="build/testClasses"></mkdir>
+    </target>
+
+    <target name="compile" depends="createBuildDir">
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false"></javac>
+    </target>
+
+    <target name="compileTest" depends="compile">
+        <javac srcdir="test" destdir="build/testClasses"
+               classpath="externalLib/junit-4.10.jar;build/classes" includeantruntime="false"/>
+    </target>
+
+    <target name="runTest" depends="compileTest">
+        <junit haltonfailure="yes">
+            <classpath>
+                <pathelement location="build/classes"/>
+                <pathelement location="build/testClasses"/>
+                <pathelement location="externalLib/junit-4.10.jar"/>
+            </classpath>
+            <batchtest>
+                <fileset dir="build/testClasses">
+                    <include name="**/*Test*"/>
+                </fileset>
+            </batchtest>
+            <formatter type="brief" usefile="false"/>
+        </junit>
+    </target>
+
+    <target name="createExpressionEvaluatorDir" depends="runTest">
+        <mkdir dir="expression-evaluator"/>
+        <mkdir dir="expression-evaluator/bin"/>
+        <mkdir dir="expression-evaluator/lib"/>
+        <mkdir dir="expression-evaluator/docs"/>
+    </target>
+
+    <target name="createJar" depends="createExpressionEvaluatorDir">
+        <jar destfile="expression-evaluator/lib/expression-evaluator.jar" basedir="build/classes"></jar>
+    </target>
+
+
+    <target name="dist" depends="createJar">
+        <copydir src="scripts" dest="expression-evaluator/bin"/>
+        <copy file="README.md" toDir="expression-evaluator"/>
+        <zip zipfile="expression-evaluator.zip" basedir="expression-evaluator"></zip>
+    </target>
+
+</project>
