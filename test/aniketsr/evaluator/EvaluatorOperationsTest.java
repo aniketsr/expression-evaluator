@@ -13,4 +13,14 @@ public class EvaluatorOperationsTest {
 
         assertEquals("2+3",result);
     }
+
+    @Test
+    public void testEvaluate() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("27+300");
+
+        int result = add.evaluate();
+        int expected = 327;
+
+        assertEquals(expected,result);
+    }
 }

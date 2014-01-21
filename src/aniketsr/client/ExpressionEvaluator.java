@@ -17,7 +17,7 @@ public class ExpressionEvaluator {
         try {
             ExpressionEvaluator cli = new ExpressionEvaluator(args[0]);
             EvaluatorOperations evaluate = cli.getEvaluation();
-            System.out.println(evaluate.showExpression());
+            System.out.println(evaluate.evaluate());
         } catch (Exception e) {
             System.out.println("something went wrong!!! " + e);
         }
