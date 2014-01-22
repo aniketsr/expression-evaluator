@@ -1,19 +1,28 @@
 Expression-Evaluator
 ====================
 
-It will contain all releases for the expression evaluator
+## Release 0.1
 
-copy the version-0.0.zip file on your local machine
+### Evaluator allows user to perform addition of two positive integers including zero.
+* Evaluator can perform only addition.
 
-extract that .zip file and set the environment path before bin folder
+* User has to give two operands and addition operator.
+    eg. `34+87`
 
-give name as `EVALUATOR_HOME`
+* Space is not allowed in expression.
+    eg. `34+ 87`
 
-run from git bash like
-`Evaluator.sh  "2+3"`
+* Evaluator works for positive integers including zero.
 
+* NOTE : Evaluator does not handle any special symbol.
 
-Version 0.1
+## How To Use This Project On Your System :-
 
-Addition of two operands using + operator.
+* Extract the provided `expression-evaluator-0.1.zip`
 
+* Create an environment variable as `EVALUATOR_HOME` with the address to your unzipped directory.
+
+* Put this environment variable to your path as :- `%EVALUATOR_HOME%/bin`
+
+* Run shell-script on command :-
+    eg. `sh EVALUATOR.sh 2+5`
