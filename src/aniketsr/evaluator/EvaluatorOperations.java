@@ -13,7 +13,7 @@ public class EvaluatorOperations {
 
     public int evaluate(){
         int number1, number2;
-        int result = 0;
+        int result;
         for (int i = 0; i < expression.length(); i++) {
             if (expression.charAt(i) == '+') {
                 number1 = Integer.parseInt(expression.substring(0, i));
@@ -22,6 +22,6 @@ public class EvaluatorOperations {
                 return result;
             }
         }
-        return result;
+        return Integer.parseInt(expression);
     }
 }
