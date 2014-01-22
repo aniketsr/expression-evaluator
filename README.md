@@ -16,6 +16,10 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
+### Bugs fixed :-
+* Works for 22
+* Gives proper error messages for unsupported expression.
+
 ## How To Use This Project On Your System :-
 
 * Extract the provided `expression-evaluator-0.1.zip`

@@ -1,8 +1,5 @@
-<project name="expression-evaluator" default="dist">
+<project name="expression-evaluator" default="clean">
 
-    <target name="cleanBuild">
-        <delete dir="build"/>
-    </target>
 
     <target name="createBuildDir">
         <mkdir dir="build"></mkdir>
@@ -52,10 +49,17 @@
                  destdir="expression-evaluator/docs"/>
     </target>
 
-    <target name="dist" depends="createDocs">
+    <target name="cleanBuild" depends="createDocs">
+        <delete dir="build"/>
+    </target>
+
+    <target name="dist" depends="cleanBuild">
         <copydir src="scripts" dest="expression-evaluator/bin"/>
         <copy file="README.md" toDir="expression-evaluator"/>
         <zip zipfile="expression-evaluator-0.1.zip" basedir="expression-evaluator"></zip>
     </target>
 
+    <target name = "clean" depends="dist">
+        <delete dir="expression-evaluator"/>
+    </target>
 </project>
