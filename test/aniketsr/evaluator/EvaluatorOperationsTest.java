@@ -33,4 +33,14 @@ public class EvaluatorOperationsTest {
 
         assertEquals(expected,result);
     }
+
+    @Test
+    public void testEvaluateForOnlyOneOperand() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("22");
+
+        int result = add.evaluate();
+        int expected = 22;
+
+        assertEquals(expected,result);
+    }
 }
