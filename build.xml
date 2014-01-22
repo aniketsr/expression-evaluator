@@ -1,4 +1,4 @@
-<project name="expression-evaluator" default="clean">
+<project name="expression-evaluator" default="dist">
 
 
     <target name="createBuildDir">
@@ -59,7 +59,4 @@
         <zip zipfile="expression-evaluator-0.1.zip" basedir="expression-evaluator"></zip>
     </target>
 
-    <target name = "clean" depends="dist">
-        <delete dir="expression-evaluator"/>
-    </target>
 </project>
