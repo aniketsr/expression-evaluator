@@ -1,31 +1,30 @@
 <project name="expression-evaluator" default="dist">
 
     <target name="createBuildDir">
-        <mkdir dir="expression-evaluator"></mkdir>
-        <mkdir dir="expression-evaluator/build"></mkdir>
-        <mkdir dir="expression-evaluator/build/classes"></mkdir>
-        <mkdir dir="expression-evaluator/build/testClasses"></mkdir>
-        <mkdir dir="expression-evaluator/build/dist"></mkdir>
+        <mkdir dir="build"></mkdir>
+        <mkdir dir="build/classes"></mkdir>
+        <mkdir dir="build/testClasses"></mkdir>
+        <mkdir dir="build/dist"></mkdir>
     </target>
 
     <target name="compile" depends="createBuildDir">
-        <javac srcdir="src" destdir="expression-evaluator/build/classes" includeantruntime="false"></javac>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false"></javac>
     </target>
 
     <target name="compileTest" depends="compile">
-        <javac srcdir="test" destdir="expression-evaluator/build/testClasses"
-               classpath="externalLib/junit-4.10.jar;expression-evaluator/build/classes" includeantruntime="false"/>
+        <javac srcdir="test" destdir="build/testClasses"
+               classpath="externalLib/junit-4.10.jar;build/classes" includeantruntime="false"/>
     </target>
 
     <target name="runTest" depends="compileTest">
         <junit haltonfailure="yes">
             <classpath>
-                <pathelement location="expression-evaluator/build/classes"/>
-                <pathelement location="expression-evaluator/build/testClasses"/>
+                <pathelement location="build/classes"/>
+                <pathelement location="build/testClasses"/>
                 <pathelement location="externalLib/junit-4.10.jar"/>
             </classpath>
             <batchtest>
-                <fileset dir="expression-evaluator/build/testClasses">
+                <fileset dir="build/testClasses">
                     <include name="**/*Test*"/>
                 </fileset>
             </batchtest>
@@ -34,13 +33,13 @@
     </target>
 
     <target name="createJar" depends="runTest">
-        <jar destfile="expression-evaluator/build/dist/lib/expression-evaluator.jar" basedir="expression-evaluator/build/classes"></jar>
+        <jar destfile="build/dist/lib/expression-evaluator.jar" basedir="build/classes"></jar>
     </target>
 
     <target name="dist" depends="createJar">
-        <copydir src="scripts" dest="expression-evaluator/build/dist/bin"/>
-        <copy file="README.md" toDir="expression-evaluator/build/dist"/>
-        <zip zipfile="expression-evaluator-0.5.zip" basedir="expression-evaluator"></zip>
+        <copydir src="scripts" dest="build/dist/bin"/>
+        <copy file="README.md" toDir="build/dist"/>
+        <zip zipfile="expression-evaluator-0.5.zip" basedir="build"></zip>
     </target>
 
 </project>
