@@ -5,27 +5,30 @@ public class EvaluatorOperations {
         return expression;
     }
 
-    public int evaluateSingleExpression(String expression) {
-        int number1 = 0, number2 = 0;
+    public double evaluateSingleExpression(String expression) {
+        double number1 = 0, number2 = 0;
         char operator = 0;
         for (int i = 0; i < expression.length(); i++) {
-            if (expression.charAt(i) == '+' || expression.charAt(i) == '-' || expression.charAt(i) == '*' || expression.charAt(i) == '/') {
+            if (expression.charAt(i) == '+' || expression.charAt(i) == '-' ||
+                    expression.charAt(i) == '*' || expression.charAt(i) == '/' || expression.charAt(i) == '^') {
                 operator = expression.charAt(i);
-                number1 = Integer.parseInt(expression.substring(0, i));
-                number2 = Integer.parseInt(expression.substring(i + 1, expression.length()));
+                number1 = Double.parseDouble(expression.substring(0, i).trim());
+                number2 = Double.parseDouble(expression.substring(i + 1, expression.length()).trim());
             }
         }
         if (operator == '+') return number1 + number2;
         if (operator == '-') return number1 - number2;
         if (operator == '*') return number1 * number2;
         if (operator == '/') return number1 / number2;
+        if (operator == '^') return (int) Math.pow(number1, number2);
 
-        return Integer.parseInt(expression);
+        return Double.parseDouble(expression);
     }
 
 
     public String handlePrecedenceForBrackets(String expression) {
-        int startIndex = 0, endIndex = 0, result;
+        int startIndex = 0, endIndex = 0;
+        double result;
         String bracketExpression, mergedExpression;
         for (int i = 0; i < expression.length(); i++) {
             if (expression.charAt(i) == '(') startIndex = i;
@@ -33,18 +36,18 @@ public class EvaluatorOperations {
         }
 
         bracketExpression = expression.substring(startIndex + 1, endIndex);
-        String replaceBracketExpression = "(" + bracketExpression + ")";
+        String replaceBracketExpression = '(' + bracketExpression + ')';
         result = evaluate(bracketExpression);
         mergedExpression = expression.replace(replaceBracketExpression, result + "");
 
         return mergedExpression;
-    }
+     }
 
 
-    public int evaluate(String expression) {
+    public double evaluate(String expression) {
         String singleExpression;
         String newExpression = expression;
-        int result;
+        double result;
         int count = 0;
 
         if (newExpression.contains("(")) {
@@ -54,7 +57,7 @@ public class EvaluatorOperations {
 
         for (int i = 0; i < newExpression.length(); i++) {
             char character = newExpression.charAt(i);
-            if (character == '+' || character == '-' || character == '*' || character == '/') {
+            if (character == '+' || character == '-' || character == '*' || character == '/' || character == '^' ) {
                 count++;
                 if (count == 2) {
                     singleExpression = newExpression.substring(0, i);
