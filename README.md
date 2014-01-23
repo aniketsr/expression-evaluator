@@ -1,9 +1,9 @@
 Expression-Evaluator
 ====================
 
-## Release 0.1
+### Release 0.1
 
-### Evaluator allows user to perform addition of two positive integers including zero.
+#### Evaluator allows user to perform addition of two positive integers including zero.
 * Evaluator can perform only addition.
 
 * User has to give two operands and addition operator.
@@ -16,13 +16,13 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
-### Bugs fixed :-
+#### Bugs fixed :-
 * Works for 22
 * Gives proper error messages for unsupported expression.
 
-## Release 0.2
+### Release 0.2
 
-### Evaluator allows user to perform addition on any number of operands(positive integers) including zero.
+#### Evaluator allows user to perform addition on any number of operands(positive integers) including zero.
 * Evaluator can perform only addition.
 
 * Any number of operands are allowed.
@@ -37,9 +37,9 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
-## Release 0.3
+### Release 0.3
 
-### Evaluator allows user to perform four basic arithmetic operations on any number of operands(positive integers) including zero.
+#### Evaluator allows user to perform four basic arithmetic operations on any number of operands(positive integers) including zero.
 * Evaluator can perform addition, subtraction, multiplication, division.
 
 * Any number of operands are allowed.
@@ -54,9 +54,9 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
-## Release 0.4
+### Release 0.4
 
-### Evaluator allows user to specify the precedence in expression by giving round brackets.
+#### Evaluator allows user to specify the precedence in expression by giving round brackets.
 * Evaluator gives precedence for round brackets.
     eg. `12*10+(20*4)`
 
@@ -74,9 +74,9 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
-## Release 0.5
+### Release 0.5
 
-### Evaluator allows user to specify the precedence in expression by giving multiple(not nested) round brackets.
+#### Evaluator allows user to specify the precedence in expression by giving multiple(not nested) round brackets.
 * Evaluator gives precedence for round brackets.
     eg. `12*10+(20*4)`
 
