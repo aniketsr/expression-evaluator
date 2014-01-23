@@ -37,7 +37,7 @@ public class EvaluatorOperations {
                 if (count == 2) {
                     singleExpression = newExpression.substring(0, i);
                     result = evaluateSingleExpression(singleExpression);
-                    newExpression = result+newExpression.substring(i, newExpression.length());//getModifiedExpression(result, newExpression, i);
+                    newExpression = result+newExpression.substring(i, newExpression.length());
                     i = 0;
                     count = 0;
                 }
