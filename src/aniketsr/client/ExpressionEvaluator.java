@@ -3,19 +3,8 @@ package aniketsr.client;
 import aniketsr.evaluator.EvaluatorOperations;
 
 public class ExpressionEvaluator {
-    EvaluatorOperations evaluate;
-
-    public ExpressionEvaluator(String expression) {
-        this.evaluate = new EvaluatorOperations(expression);
-    }
-
-    public EvaluatorOperations getEvaluation() {
-        return evaluate;
-    }
-
     public static void main(String[] args) {
-            ExpressionEvaluator cli = new ExpressionEvaluator(args[0]);
-            EvaluatorOperations evaluate = cli.getEvaluation();
-            System.out.println(evaluate.evaluate());
+            EvaluatorOperations evaluate = new EvaluatorOperations();
+            System.out.println(evaluate.evaluate(args[0]));
     }
 }
