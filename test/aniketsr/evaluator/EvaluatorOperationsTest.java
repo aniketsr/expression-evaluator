@@ -113,4 +113,24 @@ public class EvaluatorOperationsTest {
 
         assertEquals(expected,result);
     }
+
+    @Test
+    public void testEvaluateForMultipleBrackets() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations();
+
+        int result = add.evaluate("2+8*(45-40*4)+(200)-100");
+        int expected = 300;
+
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void testEvaluateForMultipleBracketsComplexOperations() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations();
+
+        int result = add.evaluate("2+8*(45-40*4)+(200*1+300-200)-100");
+        int expected = 400;
+
+        assertEquals(expected,result);
+    }
 }
