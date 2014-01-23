@@ -54,6 +54,25 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
+## Release 0.4
+
+### Evaluator allows user to specify the precedence in expression by giving round brackets.
+* Evaluator gives precedence for round brackets.
+    eg. `12*10+(20*4)`
+
+* Only single brackets are allowed.
+
+* Any number of operands are allowed.
+
+* User has to give operands and operator.
+    eg. `12*10-(20*2-75)+25`
+
+* Space is not allowed in expression.
+    eg. `12*10 (-20* 2- 75)+ 25`
+
+* Evaluator works for positive integers including zero.
+
+* NOTE : Evaluator does not handle any special symbol.
 
 ## How To Use This Project On Your System :-
 
