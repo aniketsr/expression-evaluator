@@ -63,4 +63,24 @@ public class EvaluatorOperationsTest {
 
         assertEquals(expected,result);
     }
+
+    @Test
+    public void testEvaluateForAllOperators() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("12*10-20");
+
+        int result = add.evaluate();
+        int expected = 100;
+
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void testEvaluateForAllOperatorsUsingLargeExpression() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("12*10-20*2-75+25");
+
+        int result = add.evaluate();
+        int expected = 150;
+
+        assertEquals(expected,result);
+    }
 }

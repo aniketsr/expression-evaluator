@@ -10,17 +10,23 @@ public class EvaluatorOperations {
         this.expression = expression;
     }
 
-        public int evaluateSingleExpression(String expression){
-        int number1, number2;
-        int result;
+    public int evaluateSingleExpression(String expression){
+        int number1 = 0, number2 = 0;
+        char operator = 0;
+
         for (int i = 0; i < expression.length(); i++) {
-            if (expression.charAt(i) == '+') {
+            if (expression.charAt(i) == '+' || expression.charAt(i) == '-' || expression.charAt(i) == '*' ||expression.charAt(i) == '/') {
+                operator = expression.charAt(i);
                 number1 = Integer.parseInt(expression.substring(0, i));
                 number2 = Integer.parseInt(expression.substring(i + 1, expression.length()));
-                result = number1 + number2;
-                return result;
             }
         }
+
+        if (operator == '+') return  number1 + number2;
+        if (operator == '-') return  number1 - number2;
+        if (operator == '*') return  number1 * number2;
+        if (operator == '/') return  number1 / number2;
+
         return Integer.parseInt(expression);
     }
 
@@ -32,7 +38,7 @@ public class EvaluatorOperations {
 
         for (int i = 0; i < newExpression.length(); i++) {
             char character = newExpression.charAt(i);
-            if (character == '+') {
+            if (character == '+' || character == '-' || character == '*' || character == '/') {
                 count++;
                 if (count == 2) {
                     singleExpression = newExpression.substring(0, i);

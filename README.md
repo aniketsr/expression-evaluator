@@ -37,6 +37,23 @@ Expression-Evaluator
 
 * NOTE : Evaluator does not handle any special symbol.
 
+## Release 0.3
+
+### Evaluator allows user to perform four basic arithmetic operations on any number of operands(positive integers) including zero.
+* Evaluator can perform addition, subtraction, multiplication, division.
+
+* Any number of operands are allowed.
+
+* User has to give operands and operator.
+    eg. `12*10-20*2-75+25`
+
+* Space is not allowed in expression.
+    eg. `12*10 -20* 2- 75+ 25`
+
+* Evaluator works for positive integers including zero.
+
+* NOTE : Evaluator does not handle any special symbol.
+
 
 ## How To Use This Project On Your System :-
 

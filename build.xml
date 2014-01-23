@@ -1,6 +1,5 @@
 <project name="expression-evaluator" default="dist">
 
-
     <target name="createBuildDir">
         <mkdir dir="build"></mkdir>
         <mkdir dir="build/classes"></mkdir>
@@ -36,27 +35,20 @@
         <mkdir dir="expression-evaluator"/>
         <mkdir dir="expression-evaluator/bin"/>
         <mkdir dir="expression-evaluator/lib"/>
-        <mkdir dir="expression-evaluator/docs"/>
     </target>
 
     <target name="createJar" depends="createExpressionEvaluatorDir">
         <jar destfile="expression-evaluator/lib/expression-evaluator.jar" basedir="build/classes"></jar>
     </target>
 
-    <target name = "createDocs" depends="createJar">
-        <javadoc packagenames="aniketsr.*"
-                 sourcepath="src"
-                 destdir="expression-evaluator/docs"/>
-    </target>
-
-    <target name="cleanBuild" depends="createDocs">
+    <target name="cleanBuild" depends="createJar">
         <delete dir="build"/>
     </target>
 
     <target name="dist" depends="cleanBuild">
         <copydir src="scripts" dest="expression-evaluator/bin"/>
         <copy file="README.md" toDir="expression-evaluator"/>
-        <zip zipfile="expression-evaluator-0.2.zip" basedir="expression-evaluator"></zip>
+        <zip zipfile="expression-evaluator-0.3.zip" basedir="expression-evaluator"></zip>
     </target>
 
 </project>
