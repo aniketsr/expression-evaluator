@@ -15,31 +15,51 @@ public class EvaluatorOperationsTest {
     }
 
     @Test
-    public void testEvaluate() throws Exception {
-        EvaluatorOperations add = new EvaluatorOperations("27+300");
+    public void testEvaluateSingleExpression() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("");
 
-        int result = add.evaluate();
+        int result = add.evaluateSingleExpression("27+300");
         int expected = 327;
 
         assertEquals(expected,result);
     }
 
     @Test
-    public void testEvaluateWithOneOperandAsZero() throws Exception {
-        EvaluatorOperations add = new EvaluatorOperations("34+0");
+    public void testEvaluateSingleExpressionWithOneOperandAsZero() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("");
 
-        int result = add.evaluate();
-        int expected = 34;
+        int result = add.evaluateSingleExpression("50+0");
+        int expected = 50;
 
         assertEquals(expected,result);
     }
 
     @Test
-    public void testEvaluateForOnlyOneOperand() throws Exception {
-        EvaluatorOperations add = new EvaluatorOperations("22");
+    public void testEvaluateSingleExpressionForOnlyOneOperand() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("");
+
+        int result = add.evaluateSingleExpression("22");
+        int expected = 22;
+
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void testEvaluate() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("80+80+40");
 
         int result = add.evaluate();
-        int expected = 22;
+        int expected = 200;
+
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void testEvaluateForLargeExpression() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations("25+25+75+75+15+15+15+15+25+15");
+
+        int result = add.evaluate();
+        int expected = 300;
 
         assertEquals(expected,result);
     }

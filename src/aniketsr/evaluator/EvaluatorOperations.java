@@ -2,16 +2,15 @@ package aniketsr.evaluator;
 
 public class EvaluatorOperations {
     String expression;
+    public String showExpression(){
+        return expression;
+    }
 
     public EvaluatorOperations(String expression){
         this.expression = expression;
     }
 
-    public String showExpression(){
-        return expression;
-    }
-
-    public int evaluate(){
+        public int evaluateSingleExpression(String expression){
         int number1, number2;
         int result;
         for (int i = 0; i < expression.length(); i++) {
@@ -23,5 +22,27 @@ public class EvaluatorOperations {
             }
         }
         return Integer.parseInt(expression);
+    }
+
+    public int evaluate() {
+        String singleExpression;
+        String newExpression = expression;
+        int result;
+        int count = 0;
+
+        for (int i = 0; i < newExpression.length(); i++) {
+            char character = newExpression.charAt(i);
+            if (character == '+') {
+                count++;
+                if (count == 2) {
+                    singleExpression = newExpression.substring(0, i);
+                    result = evaluateSingleExpression(singleExpression);
+                    newExpression = result+newExpression.substring(i, newExpression.length());//getModifiedExpression(result, newExpression, i);
+                    i = 0;
+                    count = 0;
+                }
+            }
+        }
+        return evaluateSingleExpression(newExpression);
     }
 }

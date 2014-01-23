@@ -56,7 +56,7 @@
     <target name="dist" depends="cleanBuild">
         <copydir src="scripts" dest="expression-evaluator/bin"/>
         <copy file="README.md" toDir="expression-evaluator"/>
-        <zip zipfile="expression-evaluator-0.1.zip" basedir="expression-evaluator"></zip>
+        <zip zipfile="expression-evaluator-0.2.zip" basedir="expression-evaluator"></zip>
     </target>
 
 </project>
