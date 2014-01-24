@@ -12,6 +12,20 @@ Expression-Evaluator
 * Run shell-script on command :-
     eg. `sh EVALUATOR.sh 2+5`
 
+### Release 0.6
+
+#### Evaluator allows user to specify the precedence in expression by giving multiple and/or nested brackets.
+* Evaluator handles nested round brackets.
+    eg. `12*10+(10*4+(20+(10)))`
+
+* Evaluator handles multiple round brackets.
+    eg. `12*10+(10*4)+(30+10)`
+
+* Any number of operands are allowed.
+
+* Evaluator works for positive integers including zero.
+
+
 ### Release 0.5
 
 #### Evaluator allows user to specify the precedence in expression by giving multiple(not nested) round brackets.
@@ -29,8 +43,6 @@ Expression-Evaluator
     eg. `12*10 (-20* 2- 75)+ 25`
 
 * Evaluator works for positive integers including zero.
-
-* NOTE : Evaluator does not handle any special symbol.
 
 
 ### Release 0.4
@@ -50,8 +62,6 @@ Expression-Evaluator
     eg. `12*10 (-20* 2- 75)+ 25`
 
 * Evaluator works for positive integers including zero.
-
-* NOTE : Evaluator does not handle any special symbol.
 
 
 ### Release 0.3
