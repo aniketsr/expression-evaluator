@@ -2,6 +2,7 @@ package aniketsr.evaluator;
 
 import org.junit.Test;
 
+import static com.sun.org.apache.xpath.internal.XPathAPI.eval;
 import static org.junit.Assert.assertEquals;
 
 public class EvaluatorOperationsTest {
@@ -218,6 +219,26 @@ public class EvaluatorOperationsTest {
 
         double result = add.evaluate("-1-1");
         int expected = -2;
+
+        assertEquals(expected,result,0.0);
+    }
+
+    @Test
+    public void testEvaluateForSecondOperandAsNegative() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations();
+
+        double result = add.evaluate("-2+-3");
+        double expected = -5.0;
+
+        assertEquals(expected,result,0.0);
+    }
+
+    @Test
+    public void testEvaluateForSecondOperandAsNegativeWithSpaces() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations();
+
+        double result = add.evaluate("2^-3");
+        double expected = 0.125;
 
         assertEquals(expected,result,0.0);
     }

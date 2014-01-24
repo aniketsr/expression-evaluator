@@ -9,15 +9,13 @@ public class EvaluatorOperations {
         double number1 = 0, number2 = 0;
         char operator = 0;
         expression = expression.trim();
-        int i = 0;
-        if (expression.charAt(0) == '-')
-            i = 1;
-        for (; i < expression.length(); i++) {
+        for (int i = 1; i < expression.length(); i++) {
             if (expression.charAt(i) == '+' || expression.charAt(i) == '-' ||
                     expression.charAt(i) == '*' || expression.charAt(i) == '/' || expression.charAt(i) == '^') {
                 operator = expression.charAt(i);
                 number1 = Double.parseDouble(expression.substring(0, i).trim());
                 number2 = Double.parseDouble(expression.substring(i + 1, expression.length()).trim());
+                break;
             }
         }
         if (operator == '+') return number1 + number2;
@@ -56,13 +54,13 @@ public class EvaluatorOperations {
         String newExpression = expression;
         double result;
         int count = 0;
-
+        newExpression = expression.replaceAll(" +","");
         if (newExpression.contains("(")) {
             newExpression = handlePrecedenceForBrackets(newExpression);
             return evaluate(newExpression);
         }
 
-        for (int i = 0; i < newExpression.length(); i++) {
+        for (int i = 1; i < newExpression.length(); i++) {
             char character = newExpression.charAt(i);
             if (character == '+' || character == '-' || character == '*' || character == '/' || character == '^') {
                 count++;
@@ -73,6 +71,7 @@ public class EvaluatorOperations {
                     i = 0;
                     count = 0;
                 }
+                i++;
             }
         }
         return evaluateSingleExpression(newExpression);

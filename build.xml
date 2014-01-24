@@ -39,7 +39,7 @@
     <target name="dist" depends="createJar">
         <copydir src="scripts" dest="build/dist/bin"/>
         <copy file="README.md" toDir="build/dist"/>
-        <zip zipfile="expression-evaluator-0.7.zip" basedir="build"></zip>
+        <zip zipfile="expression-evaluator-0.8.zip" basedir="build"></zip>
     </target>
 
 </project>
