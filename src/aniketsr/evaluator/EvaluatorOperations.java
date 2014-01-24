@@ -5,27 +5,21 @@ public class EvaluatorOperations {
         return expression;
     }
 
-    public boolean isNumber(String expression) {
-        try {
-            Double.parseDouble(expression);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     public double evaluateSingleExpression(String expression) {
         double number1 = 0, number2 = 0;
         char operator = 0;
-        if (isNumber(expression)) return Double.parseDouble(expression);
-        for (int i = 0; i < expression.length(); i++) {
-                if (expression.charAt(i) == '+' || expression.charAt(i) == '-' ||
-                        expression.charAt(i) == '*' || expression.charAt(i) == '/' || expression.charAt(i) == '^') {
-                    operator = expression.charAt(i);
-                    number1 = Double.parseDouble(expression.substring(0, i).trim());
-                    number2 = Double.parseDouble(expression.substring(i + 1, expression.length()).trim());
-                }
+        expression = expression.trim();
+        int i = 0;
+        if (expression.charAt(0) == '-')
+            i = 1;
+        for (; i < expression.length(); i++) {
+            if (expression.charAt(i) == '+' || expression.charAt(i) == '-' ||
+                    expression.charAt(i) == '*' || expression.charAt(i) == '/' || expression.charAt(i) == '^') {
+                operator = expression.charAt(i);
+                number1 = Double.parseDouble(expression.substring(0, i).trim());
+                number2 = Double.parseDouble(expression.substring(i + 1, expression.length()).trim());
             }
+        }
         if (operator == '+') return number1 + number2;
         if (operator == '-') return number1 - number2;
         if (operator == '*') return number1 * number2;

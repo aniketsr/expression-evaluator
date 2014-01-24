@@ -211,4 +211,14 @@ public class EvaluatorOperationsTest {
 
         assertEquals(expected,result,0.0);
     }
+
+    @Test
+    public void testEvaluateForNegative() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations();
+
+        double result = add.evaluate("-1-1");
+        int expected = -2;
+
+        assertEquals(expected,result,0.0);
+    }
 }

@@ -12,6 +12,18 @@ Expression-Evaluator
 * Run shell-script on command :-
     eg. `sh EVALUATOR.sh 2+5`
 
+### Release 0.7
+
+#### Evaluator handles caret and negative operator.
+* Evaluator handles negative operator for first operand only.
+    eg. `-1-1`
+
+* Evaluator handles caret operator.
+    eg. `2^4`
+
+* Any number of operands are allowed.
+
+
 ### Release 0.6
 
 #### Evaluator allows user to specify the precedence in expression by giving multiple and/or nested brackets.
