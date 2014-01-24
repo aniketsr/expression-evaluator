@@ -20,7 +20,7 @@ public class EvaluatorOperations {
         if (operator == '-') return number1 - number2;
         if (operator == '*') return number1 * number2;
         if (operator == '/') return number1 / number2;
-        if (operator == '^') return (int) Math.pow(number1, number2);
+        if (operator == '^') return Math.pow(number1, number2);
 
         return Double.parseDouble(expression);
     }
@@ -32,7 +32,10 @@ public class EvaluatorOperations {
         String bracketExpression, mergedExpression;
         for (int i = 0; i < expression.length(); i++) {
             if (expression.charAt(i) == '(') startIndex = i;
-            if (expression.charAt(i) == ')') endIndex = i;
+            if (expression.charAt(i) == ')') {
+                endIndex = i;
+                break;
+            }
         }
 
         bracketExpression = expression.substring(startIndex + 1, endIndex);
