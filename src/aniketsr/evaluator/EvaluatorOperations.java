@@ -5,17 +5,27 @@ public class EvaluatorOperations {
         return expression;
     }
 
+    public boolean isNumber(String expression) {
+        try {
+            Double.parseDouble(expression);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public double evaluateSingleExpression(String expression) {
         double number1 = 0, number2 = 0;
         char operator = 0;
+        if (isNumber(expression)) return Double.parseDouble(expression);
         for (int i = 0; i < expression.length(); i++) {
-            if (expression.charAt(i) == '+' || expression.charAt(i) == '-' ||
-                    expression.charAt(i) == '*' || expression.charAt(i) == '/' || expression.charAt(i) == '^') {
-                operator = expression.charAt(i);
-                number1 = Double.parseDouble(expression.substring(0, i).trim());
-                number2 = Double.parseDouble(expression.substring(i + 1, expression.length()).trim());
+                if (expression.charAt(i) == '+' || expression.charAt(i) == '-' ||
+                        expression.charAt(i) == '*' || expression.charAt(i) == '/' || expression.charAt(i) == '^') {
+                    operator = expression.charAt(i);
+                    number1 = Double.parseDouble(expression.substring(0, i).trim());
+                    number2 = Double.parseDouble(expression.substring(i + 1, expression.length()).trim());
+                }
             }
-        }
         if (operator == '+') return number1 + number2;
         if (operator == '-') return number1 - number2;
         if (operator == '*') return number1 * number2;
@@ -44,7 +54,7 @@ public class EvaluatorOperations {
         mergedExpression = expression.replace(replaceBracketExpression, result + "");
 
         return mergedExpression;
-     }
+    }
 
 
     public double evaluate(String expression) {
@@ -60,7 +70,7 @@ public class EvaluatorOperations {
 
         for (int i = 0; i < newExpression.length(); i++) {
             char character = newExpression.charAt(i);
-            if (character == '+' || character == '-' || character == '*' || character == '/' || character == '^' ) {
+            if (character == '+' || character == '-' || character == '*' || character == '/' || character == '^') {
                 count++;
                 if (count == 2) {
                     singleExpression = newExpression.substring(0, i);

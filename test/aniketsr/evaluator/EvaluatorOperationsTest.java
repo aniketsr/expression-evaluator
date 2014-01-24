@@ -32,8 +32,8 @@ public class EvaluatorOperationsTest {
     public void testEvaluateSingleExpression() throws Exception {
         EvaluatorOperations add = new EvaluatorOperations();
 
-        double result = add.evaluateSingleExpression("27.2+300.2");
-        double expected = 327.4;
+        double result = add.evaluateSingleExpression("27+300");
+        double expected = 327;
 
         assertEquals(expected,result,0.0);
     }
@@ -62,8 +62,8 @@ public class EvaluatorOperationsTest {
     public void testEvaluate() throws Exception {
         EvaluatorOperations add = new EvaluatorOperations();
 
-        double result = add.evaluate("80.5+80+40.5");
-        int expected = 201;
+        double result = add.evaluate("80+80+40");
+        int expected = 200;
 
         assertEquals(expected,result,0.0);
     }
@@ -198,6 +198,16 @@ public class EvaluatorOperationsTest {
 
         double result = add.evaluate("((((((((((22))))))))))");
         int expected = 22;
+
+        assertEquals(expected,result,0.0);
+    }
+
+    @Test
+    public void testEvaluateForNestedAndMultipleBracketsLoop() throws Exception {
+        EvaluatorOperations add = new EvaluatorOperations();
+
+        double result = add.evaluate("4+(8+(4+4)-(10))+(3+7)-5*((((4))))");
+        int expected = 60;
 
         assertEquals(expected,result,0.0);
     }
